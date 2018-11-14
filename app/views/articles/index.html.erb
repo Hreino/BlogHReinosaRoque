@@ -1,0 +1,13 @@
+<%# <%= @articles.inspect%>
+<% @articles.each do |item| %>
+ <h1>
+ <%=item.title%>
+ </h1>
+
+ <div>
+     <%=item.content%>
+</div>
+<% end %>
+
+
+<%# inspect es metodo que permite inspeccionar un objeto %>

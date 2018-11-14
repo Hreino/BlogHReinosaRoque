@@ -9,6 +9,25 @@
   </head>
 
 <body>
+  <nav class="be-red white">
+    <ul class="navbar"> 
+        <h2 class="navbar"><%= link_to "Inicio", root_path%></h2>
+        <li class="navbar">Blogs</li>
+        <li class="navbar">Otros</li>
+        <div>
+      <% if user_signed_in? %>
+      Hola  <strong><%= current_user.email %>!</strong>
+      <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'btn btn-default btn-sm' %> 
+      <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'btn btn-secondary btn-sm'  %>
+      <% else %>
+      <%= link_to "Registrarse", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "Ingresar", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+  </div>
+      
+    </ul>
+  </nav>
+
   <%# para configuracion inicial  de devise%>
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -19,16 +38,10 @@
 <%#  %>
 
 
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+<div class="navbar justify-content-end">
+
+
+</div>
 
 <%#  %>
 <%# para configuracion inicial de devise %>
