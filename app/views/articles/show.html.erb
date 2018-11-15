@@ -1,6 +1,9 @@
 <div class="container">
     <h2 class="text-info">
         <%= @article.title%>
+        <p class="btn btn-secondary"><%= link_to "Eliminar Post", @article, method: :delete%></p>
+        <p class="btn btn-secondary"><%= link_to "Editar Post", edit_article_path(@article)%></p>
+
     </h2>
 
     <div>

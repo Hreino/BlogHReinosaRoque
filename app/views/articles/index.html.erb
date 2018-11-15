@@ -1,14 +1,15 @@
 <%# <%= @articles.inspect%>
-
+ <div class="jumbotron text-center">
+        <h5> <%=link_to "Publicar Articulo", new_article_path, class:"btn btn-secondary"%></h5>
+    </div>
     <% @articles.each do |article| %>
 <div class="container">
+   
     <div >
     <h3 class="text-info"><%=link_to article.title, article%> </h3>
     </div>
     
      <%=article.content%><br>
-    <p class="btn btn-secondary"><%= link_to "Eliminar Post", article, method: :delete%></p>
-    <p class="btn btn-secondary"><%= link_to "Editar Post", edit_article_path(article)%></p>
 
     </div>
     <br><hr><br>

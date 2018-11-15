@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Blog</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-<body>
-  <nav class="be-red white">
+ <nav class="be-red white">
     <ul class="navbar"> 
       <h2 class="navbar"><%= link_to "Inicio", root_path%></h2>
       <li class="navbar"><%= link_to "Articulos", articles_path%></li>
@@ -27,21 +16,3 @@
       
     </ul>
   </nav>
-
-  <%# para notificaciones%>
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-
-
-
-<%# para configuracion inicial de devise %>
-
-
-    <%= yield %>
-  </body>
-</html>
