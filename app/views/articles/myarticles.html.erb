@@ -1,5 +1,7 @@
 <div class="container">
      <h1 class="text-info">Bienvenido <i class="text-warning"> <%= current_user.email%> </i></h1>
+     <h5> <%=link_to "Publicar Articulo", new_article_path, class:"btn btn-secondary"%></h5>
+
           <% @articles.each do |article| %>
 
                <div >
@@ -8,6 +10,15 @@
                <div>
                     <%=article.content%><br>
                </div>
+               <% if article.comments.count >1 %>
+     <p class="btn btn-sm btn-secondary">  <%= article.comments.count%>  comentarios</p>
+     <% end %>
+    <% if article.comments.count ==1 %>
+     <p class="btn btn-sm btn-secondary">  <%= article.comments.count%>  comentario</p>
+     <% end %>
+     <% if article.comments.count ==0 %>
+     <p class="text-muted">  Este articulo no tiene comentarios aún</p>
+     <% end %>
                <br><hr><br>
      
           <% end %>

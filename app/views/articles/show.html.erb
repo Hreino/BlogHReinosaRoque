@@ -8,7 +8,6 @@
     </div>
      <% unless @article.user.nil? || @article.visits.nil? %>
             <p> Escrito por: <b> <%= @article.user.email%></b> </p><br>
-            
     <% end %>
     <p> Visitas: <%= @article.visits%> </p>
 
@@ -20,19 +19,17 @@
     <div>
         <h2 class="text-info">Comentarios</h2>
         <%= render 'comments/form' %>
-        <ul>
+       
         <% @article.comments.each do |comment|%>
-            <li>
+            <div class="container">
                <b><%=comment.body%></b> <i class="text-muted"> por <%=comment.user.email%></i>
-               
                 <% if current_user.email == comment.user.email %>
-                <%= link_to 'Eliminar Comentario', [comment.article, comment],
-                  method: :delete %>
-                  
-            <% end %>    
-            </li>
+                <%= link_to 'Eliminar Comentario', [comment.article, comment],method: :delete %>
+            <% end %> 
+            <br> <br>   
+            </div class="container">
             
         <%end%>
-        </ul>
+    
     </div>
 </div>
