@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
           @article = current_user.articles.new(article_params)
           if @article.save
             flash[:success] = "Articulo publicado exitosamente"
+            
             redirect_to @article
           else
             flash[:error] = "Algo salio mal, el post no fue publicado"

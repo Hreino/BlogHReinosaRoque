@@ -3,8 +3,10 @@
         <%= @article.title%>
     </h2>
     <div class="container">
-        <p class="btn btn-secondary"><%= link_to "Eliminar Post", @article, method: :delete%></p>
-        <p class="btn btn-secondary"><%= link_to "Editar Post", edit_article_path(@article)%></p>
+        <% if @article.user.email == current_user.email %>
+            <p class="btn btn-secondary"><%= link_to "Eliminar Post", @article, method: :delete%></p>
+            <p class="btn btn-secondary"><%= link_to "Editar Post", edit_article_path(@article)%></p>
+        <% end %>
     </div>
      <% unless @article.user.nil? || @article.visits.nil? %>
             <p> Escrito por: <b> <%= @article.user.email%></b> </p><br>
@@ -27,8 +29,7 @@
                 <%= link_to 'Eliminar Comentario', [comment.article, comment],method: :delete %>
             <% end %> 
             <br> <br>   
-            </div class="container">
-            
+            </div class="container">        
         <%end%>
     
     </div>
