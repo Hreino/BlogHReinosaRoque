@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
      #GET /articles
-     before_action :authenticate_user!, except:[:index, :show]  
+     before_action :authenticate_user!
 
      def index
           #para que las variables esten disponibles en la vista y en los controladores
           #, deben estar declaradas con un '@'
-          @articles =Article.all
+          @articles =Article.all.order("created_at DESC")
      end
 
      def show
@@ -54,6 +54,13 @@ class ArticlesController < ApplicationController
            render 'edit'
          end
      end
+
+    def myarticles
+          #ordenando desde el ultimo al primero
+         @articles = current_user.articles.order("created_at DESC")
+    end
+    
+     
      
      #Strong params
      private

@@ -12,8 +12,9 @@
   <nav class="be-red white">
     <ul class="navbar"> 
       <h2 class="navbar"><%= link_to "Inicio", root_path%></h2>
-      <li class="navbar"><%= link_to "Articulos", articles_path%></li>
-      <li class="navbar">Otros</li>
+      <h5 class="navbar"><%= link_to "Articulos", articles_path%></h5>
+      <h5> <%=link_to "Mis articulos", myarticles_path%></h5>
+
       <div>
       <% if user_signed_in? %>
       Hola  <strong><%= current_user.email %>!</strong>

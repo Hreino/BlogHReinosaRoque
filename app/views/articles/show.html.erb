@@ -7,7 +7,7 @@
         <p class="btn btn-secondary"><%= link_to "Editar Post", edit_article_path(@article)%></p>
     </div>
      <% unless @article.user.nil? || @article.visits.nil? %>
-            <p> Escrito por: <%= @article.user.email%> </p><br>
+            <p> Escrito por: <b> <%= @article.user.email%></b> </p><br>
             
     <% end %>
     <p> Visitas: <%= @article.visits%> </p>
@@ -22,10 +22,16 @@
         <%= render 'comments/form' %>
         <ul>
         <% @article.comments.each do |comment|%>
-            <li><%=comment.body%> -<%=comment.user.email%></li>
-            <% if current_user.email == comment.user.email %>
-                 <%#= link_to "Editar",comment, method: :edit%>
-            <% end %>
+            <li>
+               <b><%=comment.body%></b> <i class="text-muted"> por <%=comment.user.email%></i>
+               
+                <% if current_user.email == comment.user.email %>
+                <%= link_to 'Eliminar Comentario', [comment.article, comment],
+                  method: :delete %>
+                  
+            <% end %>    
+            </li>
+            
         <%end%>
         </ul>
     </div>
