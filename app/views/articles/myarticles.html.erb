@@ -1,9 +1,9 @@
 <div class="container">
-     <h1 class="text-info">Bienvenido <i class="text-warning"> <%= current_user.email%> </i></h1>
+     <h1 class="title">Bienvenido <i> <%= current_user.email%> </i></h1>
+     <h4 class="title"><i>Éstas son todas tus publicaciones</i></h4>
      <h5> <%=link_to "Publicar Articulo", new_article_path, class:"btn btn-secondary"%></h5>
 
           <% @articles.each do |article| %>
-
                <div >
                     <h3 class="text-info"><%=link_to article.title, article%> </h3>
                </div>

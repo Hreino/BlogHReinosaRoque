@@ -1,12 +1,14 @@
 <%# <%= @articles.inspect%>
- <div class="jumbotron text-center">
-    <h5> <%=link_to "Publicar Articulo", new_article_path, class:"btn btn-secondary"%></h5>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h5> <%=link_to "Publicar Articulo", new_article_path, class:"btn btn-secondary"%></h5>
     </div>
+</div>
     <% @articles.each do |article| %>
 <div class="container">
    
     <div >
-    <h3 class="text-info"><%=link_to article.title, article%> </h3>
+    <h3 class="title"><%=link_to article.title, article%> </h3>
     </div>
     
      <%=article.content%><br>
