@@ -27,6 +27,9 @@
                <b><%=comment.body%></b> <i class="text-muted"> por <%=comment.user.email%></i>
                 <% if current_user.email == comment.user.email %>
                 <%= link_to 'Eliminar Comentario', [comment.article, comment],method: :delete %>
+                <%= link_to 'Editar Comentario' , [comment.article, comment] %>
+                
+                
             <% end %> 
             <br> <br>   
             </div class="container">        
