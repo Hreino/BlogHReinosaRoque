@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
     belongs_to :user
     has_many :comments
-    validates :title, presence: true, uniqueness: { case_sensitive: false }, length: {minimum: 20}
+    validates :title, presence: true, uniqueness: { case_sensitive: false }, length: {minimum: 10}
     validates :content, presence: true, uniqueness: { case_sensitive: false }, length: {minimum: 50}
     before_save :set_visits
 

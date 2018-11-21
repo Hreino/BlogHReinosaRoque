@@ -13,20 +13,21 @@
 
   <nav class="navcolor orange">
     <ul class="navbar"> 
-      <h2 class="navbar"><%= link_to "Inicio", root_path%></h2>
-      <h5 class="navbar"><%= link_to "Articulos", articles_path%></h5>
-      <h5> <%=link_to "Mis articulos", myarticles_path%></h5>
-
-      <div>
+      <h2 class="navbar"> <i class="fa fa-home"> </i><%= link_to "Inicio", root_path%></h2>
       <% if user_signed_in? %>
-      Hola  <strong><%= current_user.email %>!</strong>
-      <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'btn btn-default btn-sm' %> 
-      <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'btn btn-secondary btn-sm'  %>
-      <% else %>
-      <%= link_to "Registrarse", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Ingresar", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
-    </div>
+          <h5 class="navbar"> <i class="fa fa-newspaper-o"> <%= link_to "Articulos", articles_path%></i></h5>
+          <h5><i class="fa fa-user"> <%=link_to "Mis articulos", myarticles_path%></i></h5>
+
+          <div>
+              <h6> Hola  <strong><%= current_user.email %>!</strong>
+                  <%= link_to '', edit_user_registration_path, :class => 'btn btn-default btn-sm fa fa-user', :title => 'Editar Perfil' %> 
+                  <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'fa fa-times' , :title => 'Salir' %>
+              </h6>
+            <% else %>
+            <h6><%= link_to "Registrate", new_user_registration_path, :class => 'fa fa-check'  %> </h6>
+            <h6><%= link_to "Accede a tu cuenta...", new_user_session_path, :class => 'fa fa-arrow-right'  %></h6>
+            <% end %>
+          </div>
       
     </ul>
   </nav>
