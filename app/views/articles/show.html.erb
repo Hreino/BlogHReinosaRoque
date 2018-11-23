@@ -4,8 +4,8 @@
     </h2>
     <div class="container">
         <% if @article.user.email == current_user.email %>
-            <p class="btn btn-secondary"><%= link_to "Eliminar Post", @article, method: :delete%></p>
-            <p class="btn btn-secondary"><%= link_to "Editar Post", edit_article_path(@article)%></p>
+            <p class="btn btn-secondary fa fa-trash"><%= link_to "Eliminar Post", @article, method: :delete%></p>
+            <p class="btn btn-secondary fa fa-edit"><%= link_to "Editar Post", edit_article_path(@article)%></p>
         <% end %>
     </div>
      <% unless @article.user.nil? || @article.visits.nil? %>
