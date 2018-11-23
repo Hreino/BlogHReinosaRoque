@@ -2,6 +2,7 @@
 <div class="container">
 
      <% if !user_signed_in? %>
+     <%# Mostrando contenido si el usuario ha iniciado sesion %>
           <div class="row ">
           <div class="col-md-8 text-center">
                <h2 class="title">Bienvenido!!! Disfruta de la experiencia de compartir tus ideas, y conocer las opiniones de los demás.<h2>
@@ -21,6 +22,7 @@
           </div>
           </div>
      <% else %>
+     <%# Mostrando contenido si el usuario no ha iniciado sesion  %>
      <div class="row ">
           <div class="col-md-8 text-center ">
                <h2 class="title">Bienvenido!!! Disfruta de la experiencia de compartir tus ideas, y conocer las opiniones de los demás.<h2>

@@ -3,6 +3,7 @@
         <%= @article.title%>
     </h2>
     <div class="container">
+    <%# Mostrando botones solo si el usuario actual es quien ha creado los articulos  %>
         <% if @article.user.email == current_user.email %>
             <p class="btn btn-secondary fa fa-trash"><%= link_to "Eliminar Post", @article, method: :delete%></p>
             <p class="btn btn-secondary fa fa-edit"><%= link_to "Editar Post", edit_article_path(@article)%></p>
@@ -11,6 +12,7 @@
      <% unless @article.user.nil? || @article.visits.nil? %>
             <p> Escrito por: <b> <%= @article.user.email%></b> </p><br>
     <% end %>
+    <%# Contador de visitas %>
     <p> Visitas: <%= @article.visits%> </p>
 
 
@@ -21,10 +23,11 @@
     <div>
         <h2 class="text-info">Comentarios</h2>
         <%= render 'comments/form' %>
-       
+       <%# Mostrando comentarios %>
         <% @article.comments.each do |comment|%>
             <div class="container">
                <b><%=comment.body%></b> <i class="text-muted"> por <%=comment.user.email%></i>
+               <%# Mostrando botones de editar comentarios y eliminar comentarios solo si el usuario en sesion ha creado los commentarios %>
                 <% if current_user.email == comment.user.email %>
                 <%= link_to 'Eliminar Comentario', [comment.article, comment],method: :delete %>
                 <%= link_to 'Editar Comentario' , [comment.article, comment] %>

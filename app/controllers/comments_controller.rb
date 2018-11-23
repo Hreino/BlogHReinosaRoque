@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_article
-
+  # Autenticando al usuario para poder acceder a los metodos del controlador
   before_action :authenticate_user!
 
   # GET /comments
@@ -27,6 +27,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    # Creando comentario bajo el usuario en sesion
     @comment = current_user.comments.new(comment_params)
     @comment.article = @article
 
@@ -46,7 +47,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment.article, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to @comment.article, notice: 'Comentario editado exitosamente.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }

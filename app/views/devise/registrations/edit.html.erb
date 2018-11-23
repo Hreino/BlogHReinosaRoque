@@ -1,5 +1,6 @@
 <div class="container col-md-4 text-center">
-      <h2 class="text-info">Editar mi cuenta <%= resource_name.to_s.humanize %></h2>
+<%# Vista para editar cuenta %>
+<h2 class="text-info">Editar mi cuenta <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -36,7 +37,7 @@
     <%= f.submit "Actualizar", class: "btn btn-secondary" %>
   </div>
 <% end %>
-
+<%# Opcion para destruir la cuenta %>
   <div class="jumbotron">
     <h3 class="text-info">Cancelar mi cuenta</h3>
 

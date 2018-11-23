@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+// Color del navbar
 .navcolor{
      background-color: #3F5866;
 }
-
+// Color de titulos
 .orange{
      color: #FF8F00;
 }
@@ -10,13 +11,15 @@
      color: #3F5866 !important;
 }
 
-
+// Color de visitados
 a:visited {
      color: #FF8F00;
 }
+// Color de Hover 
 a:hover{
      color:  #FF8F00 !important;
 }
+// Color de links
 a:link{
      color:  #FF8F00 ;
 }

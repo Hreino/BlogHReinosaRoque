@@ -3,13 +3,13 @@ class ArticlesController < ApplicationController
      before_action :authenticate_user!
 
      def index
-          #para que las variables esten disponibles en la vista y en los controladores
-          #, deben estar declaradas con un '@'
+          # Ordenando articulos de forma descendente
           @articles =Article.all.order("created_at DESC")
      end
 
      def show
           @article = Article.find(params[:id])
+          # Actualizando la cantidad de visistas
           @article.update_visits
           @comment = Comment.new
      end
@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
      end
 
      def create
+          # Creando articulo asociado al  usuario en sesion
           @article = current_user.articles.new(article_params)
           if @article.save
             flash[:success] = "Articulo publicado exitosamente"
@@ -48,10 +49,10 @@ class ArticlesController < ApplicationController
      def update
           @article = Article.find(params[:id])
          if @article.update_attributes(article_params)
-           flash[:success] = "Article was successfully updated"
+           flash[:success] = "Articulo modificado Exitosamente"
            redirect_to @article
          else
-           flash[:error] = "Something went wrong"
+           flash[:error] = "Articulo no modificado"
            render 'edit'
          end
      end
