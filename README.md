@@ -1,24 +1,27 @@
-# README
+Indicaciones para poder ejecutar la aplicacion de forma local
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+	1. Clonar el repositorio de Github localmente
+	
+	2. Eliminar las lineas siguientes en el archivo Gemfile:
+		group :production do
+		  gem 'pg'
+		end
+		
+	3. Agregar en el Gemfile lo siguiente:
+		gem 'sqlite3'
+		
+	4. Ejecutar en la consola bundle install
+	
+	5. Modificar el archivo config/database.yml y cambiar linea 8 por:
+		adapter: sqlite3
+	
+	6. Ejecutar el comando en consola rails db:migrate
+	
+	7. Ejecutar el comando en consola rails server
+	
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+     Versiones de Software Utilizadas:
+	Ruby 2.5.3
+	Rails 5.0.7
+	Bootstrap 4.1.3
+          
